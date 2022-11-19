@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 const offset = 1;
-const limit = 5;
+const limit = 20;
 
 const order = 'DESC';
 
