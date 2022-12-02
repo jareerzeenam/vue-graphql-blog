@@ -1,13 +1,11 @@
 import gql from 'graphql-tag';
 
-const offset = 1;
-const limit = 20;
-
-const order = 'DESC';
-
 const BLOGS_LIST = gql`
-  query {
-    jareer_getAllBlogs(paginate: { offset: ${offset}, limit: ${limit} } sort: { fieldName: "createdAt", order: ${order} }) {
+  query jareer_getAllBlogs(
+    $paginate: jareer_PaginationInput
+    $sort: jareer_SortInput
+  ) {
+    jareer_getAllBlogs(paginate: $paginate, sort: $sort) {
       data {
         id
         title
