@@ -4,6 +4,13 @@
       Vue GraphQL Blog
     </h1>
 
+    <!-- <RouterLink to="/blogs" class="button">TEST</RouterLink> -->
+
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link>
+
+    <router-view></router-view>
+
     <p v-if="error">Something went wrong...</p>
     <p v-if="loading">Loading...</p>
     <div v-else>
