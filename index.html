@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/style.css" />
     <title>Jareer's Vue Blog</title>
   </head>
   <body>
-    <div id="app" class="bg-gradient-to-br from-indigo-900 to-violet-900 bg-fixed"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="app"></div>
+    <script type="module" src="./src/main.ts"></script>
+    <!-- Below CDN added due to flowbite plugin from node modules isn't working (bug)-->
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
   </body>
 </html>

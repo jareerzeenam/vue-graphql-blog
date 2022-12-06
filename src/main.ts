@@ -1,9 +1,11 @@
 import { createApp, provide, h } from 'vue';
 import { DefaultApolloClient } from '@vue/apollo-composable';
 import { ApolloClient, InMemoryCache } from '@apollo/client/core';
-import './style.css';
 import App from './App.vue';
 import { router } from './router';
+
+import './style.css';
+import 'flowbite';
 
 const cache = new InMemoryCache();
 
