@@ -2,7 +2,7 @@
 import NavBar from './components/NavBar.vue';
 </script>
 <template>
-  <div class="">
+  <div class="dark">
     <div class="dark:bg-slate-800">
       <div class="px-5 md:px-20 lg:px-20">
         <NavBar />

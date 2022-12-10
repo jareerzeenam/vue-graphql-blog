@@ -6,6 +6,7 @@ import Login from './views/Login.vue';
 import Blogs from './views/Blogs.vue';
 import Blog from './views/Blog.vue';
 import Contact from './views/Contact.vue';
+import Test from './views/Test.vue';
 
 export const routes = [
   {
@@ -42,6 +43,11 @@ export const routes = [
     path: '/contact',
     name: Contact,
     component: Contact,
+  },
+  {
+    path: '/test',
+    name: Test,
+    component: Test,
   },
 ];
 
