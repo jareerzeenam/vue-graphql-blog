@@ -125,6 +125,7 @@ onMounted(() => {
         class="text-4xl p-4"
       >
         <p>{{ blog.id }}</p>
+        <p>{{ blog.title }}</p>
       </li>
     </ul>
 

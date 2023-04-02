@@ -15,9 +15,8 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
 
-
-# Support Documents 
+# Support Documents
 
 - [Getting Started with Vue Apollo](https://www.apollographql.com/blog/frontend/getting-started-with-vue-apollo/)
-- [Vue Apollo](https://v4.apollo.vuejs.org/guide-composable/)
+- [Vue Apollo Composable](https://v4.apollo.vuejs.org/guide-composable/)
 - [Vue School - Routes](https://vueschool.io/lessons/installing-and-setting-up-vue-router-with-vite-vite-only)
