@@ -18,5 +18,5 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 # Support Documents
 
 - [Getting Started with Vue Apollo](https://www.apollographql.com/blog/frontend/getting-started-with-vue-apollo/)
-- [Vue Apollo Composable](https://v4.apollo.vuejs.org/guide-composable/)
+- [Vue Apollo](https://v4.apollo.vuejs.org/guide-composable/)
 - [Vue School - Routes](https://vueschool.io/lessons/installing-and-setting-up-vue-router-with-vite-vite-only)
