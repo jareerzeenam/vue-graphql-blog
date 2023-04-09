@@ -2,7 +2,9 @@
   <nav
     class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
   >
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <div
+      class="container flex flex-wrap items-center justify-between mx-auto"
+    >
       <a href="https://flowbite.com/" class="flex items-center">
         <img
           src="https://flowbite.com/docs/images/logo.svg"
@@ -29,6 +31,16 @@
             src="https://picsum.photos/200/300"
             alt="user photo"
           />
+        </button>
+
+        <button
+          @click="$emit('toggleTest')"
+          class="ml-4 p-2 rounded"
+          :class="
+            isDark ? 'bg-white text-black' : 'bg-black text-white'
+          "
+        >
+          {{ isDark ? 'Light' : 'Dark' }}
         </button>
         <!-- Dropdown menu -->
         <div
@@ -152,3 +164,10 @@
     </div>
   </nav>
 </template>
+
+<script lang="ts" setup>
+import { useDark } from '@vueuse/core';
+const emit = defineEmits(['toggleTest']);
+
+const isDark = useDark();
+</script>

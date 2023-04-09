@@ -5,7 +5,7 @@ import Blog from '../components/Blog.vue';
 <template>
   <div id="blog">
     <div class="h-screen">
-      <h1 class="text-yellow-300 text-2xl">
+      <h1 class="text-2xl">
         Blog : {{ $route.params.id }}
         <Blog :id="$route.params.id" />
       </h1>

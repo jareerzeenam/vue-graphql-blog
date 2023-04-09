@@ -30,11 +30,25 @@ console.log('RESULT ::: ', result);
 </script>
 
 <template>
-  <div>
-    <p>Lorem ipsum dolor sit amet. {{ id }}</p>
-    <h1 class="text-3xl font-bold text-white">
+  <div class="text-center">
+    <!-- <pre>{{ result }}</pre> -->
+    <h1 class="text-8xl font-bold underline">
       {{ result?.jareer_showBlog.title }}
     </h1>
-    <p>{{ result?.jareer_showBlog.description }}</p>
+    <div class="mt-5">
+      <span v-html="result?.jareer_showBlog.description"></span>
+    </div>
   </div>
 </template>
+
+<style>
+.custom-p-class {
+  margin-top: 3rem;
+  text-align: justify;
+  font-weight: 400;
+}
+
+span > p {
+  @apply custom-p-class;
+}
+</style>
