@@ -130,15 +130,13 @@ onMounted(() => {
     <p v-if="error">Something went wrong...</p>
     <div v-else>
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+        class="font-bold p-2 mb-2 border-2 border-purple-600 hover:bg-purple-600 hover:text-white dark:hover:bg-yellow-400 dark:border-yellow-300 rounded"
         @click="updateSortColumn()"
       >
         SORT in {{ sortOrder === 'ASC' ? 'DESC' : 'ASC' }}
       </button>
 
-      <p class="text-white">
-        Total Data : {{ result?.jareer_getAllBlogs.total }}
-      </p>
+      <p>Total Blogs : {{ result?.jareer_getAllBlogs.total }}</p>
 
       <div
         class="grid gap-x-8 gap-y-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-4"
@@ -146,22 +144,22 @@ onMounted(() => {
         <div
           v-for="blog in result?.jareer_getAllBlogs.data"
           :key="blog.id"
-          class="bg-gradient-to-br from-indigo-100 to-violet-200 bg-fixed p-6 block rounded-lg shadow-lg"
+          class="bg-gradient-to-brbg-fixed p-6 block rounded-lg shadow-lg border-2 border-purple-600 dark:border-yellow-300"
         >
           <router-link :to="'/blogs/' + blog.id">
             <div class="max-w-sm pb-4">
-              <h5
-                class="text-gray-900 text-xl leading-tight font-medium mb-2"
-              >
+              <h5 class="text-xl leading-tight font-medium mb-2">
                 {{ blog.title }}
               </h5>
-              <p class="text-gray-700 text-base mb-4">
+              <p class="text-base mb-4">
                 {{ blog.description.substring(0, 100) + '..' }}
               </p>
             </div>
             <hr />
             <div>{{ blog.createdAt }}</div>
-            <div class="text-blue-500"><a href="!#">Jareer</a></div>
+            <div class="dark:text-yellow-200">
+              <a href="!#">Jareer</a>
+            </div>
           </router-link>
         </div>
       </div>

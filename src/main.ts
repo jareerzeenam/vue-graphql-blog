@@ -15,8 +15,7 @@ const httpLink = new HttpLink({
 
 // Set up an authorization header using the token
 const authLink = setContext((_, { headers }) => {
-  // TODO :: implement login functionality and on token response store it to the local storage and get below token from local storage
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQyNDdiMGRlZWI5NDBiZjRlZWVjMDI3IiwiZW1haWwiOiJqYXJlZXJAZW1haWwuY29tIiwiaWF0IjoxNjgxMDQ4OTg2LCJleHAiOjE2ODEwNTYxODZ9.u1PHCv_Qi-C-WiKt5OvF2J5u3pvnoYVeopOGCGvQwGQ';
+  const token = localStorage.getItem('token');
   return {
     headers: {
       ...headers,

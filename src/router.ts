@@ -8,6 +8,13 @@ import Blog from './views/Blog.vue';
 import Contact from './views/Contact.vue';
 import Test from './views/Test.vue';
 
+const beforeEnter = () => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    router.push('/');
+  }
+};
+
 export const routes = [
   {
     path: '/',
@@ -33,11 +40,13 @@ export const routes = [
     path: '/register',
     name: Register,
     component: Register,
+    beforeEnter
   },
   {
     path: '/login',
     name: Login,
     component: Login,
+    beforeEnter
   },
   {
     path: '/contact',
@@ -55,5 +64,5 @@ export const router = createRouter({
   history: createWebHistory(),
   routes,
   linkExactActiveClass:
-    'md:text-blue-700 text-xl dark:text-yellow-50 ease-in-out duration-300 ',
+    'md:text-blue-700 text-xl dark:text-yellow-50 ease-in-out duration-300 underline underline-offset-8',
 });

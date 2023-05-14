@@ -78,10 +78,10 @@
                 >Earnings</a
               >
             </li>
-            <li>
+            <li v-if="isLoggedIn">
               <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                @click="handleLogout"
+                class="hover: block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                 >Sign out</a
               >
             </li>
@@ -138,14 +138,14 @@
               >Blogs</router-link
             >
           </li>
-          <li>
+          <li v-if="!isLoggedIn">
             <router-link
               to="/register"
               class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ease-out duration-300"
               >Register</router-link
             >
           </li>
-          <li>
+          <li v-if="!isLoggedIn">
             <router-link
               to="/login"
               class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ease-out duration-300"
@@ -167,7 +167,22 @@
 
 <script lang="ts" setup>
 import { useDark } from '@vueuse/core';
-const emit = defineEmits(['toggleTest']);
+import { computed, ref, watch } from 'vue';
+import { logout, getToken } from '../modules/auth';
 
+defineEmits(['toggleTest']);
 const isDark = useDark();
+
+// ! TODO :: Bug After the user logs out you need to refresh the page in order to see the login links in the nav (need to fix this )
+const isLoggedIn = computed(() => {
+  return !!getToken();
+});
+const showLogin = ref(!isLoggedIn.value);
+watch(isLoggedIn, (newValue) => {
+  showLogin.value = !newValue;
+});
+
+const handleLogout = () => {
+  logout();
+};
 </script>
