@@ -167,22 +167,19 @@
 
 <script lang="ts" setup>
 import { useDark } from '@vueuse/core';
-import { computed, ref, watch } from 'vue';
-import { logout, getToken } from '../modules/auth';
+import { computed } from 'vue';
+import { logout } from '../modules/auth';
+import { useLoginStore } from '../stores/auth';
+
+const loginStore = useLoginStore();
 
 defineEmits(['toggleTest']);
 const isDark = useDark();
 
-// ! TODO :: Bug After the user logs out you need to refresh the page in order to see the login links in the nav (need to fix this )
-const isLoggedIn = computed(() => {
-  return !!getToken();
-});
-const showLogin = ref(!isLoggedIn.value);
-watch(isLoggedIn, (newValue) => {
-  showLogin.value = !newValue;
-});
+const isLoggedIn = computed(() => loginStore.isLoggedIn);
 
 const handleLogout = () => {
+  loginStore.setLoggedIn(false);
   logout();
 };
 </script>

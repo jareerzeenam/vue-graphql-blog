@@ -153,6 +153,15 @@
               </form>
             </div>
           </div>
+
+          <div class="text-white">
+            <p>Count is {{ store.count }}</p>
+            <p>Double count is {{ store.doubleCount }}</p>
+
+            <button @click="store.increment(1)">Add</button>
+            <button @click="store.decrement(1)">Subtract</button>
+            <button @click="store.reset">Reset</button>
+          </div>
         </div>
       </section>
     </div>
@@ -164,8 +173,12 @@ import { ref } from 'vue';
 import { useMutation } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
 import { useRouter } from 'vue-router';
+import { useLoginStore } from '../stores/auth';
+import { useCounterStore } from '../stores/counter';
 
 const router = useRouter();
+const loginStore = useLoginStore();
+const store = useCounterStore();
 
 const LOGIN_MUTATION = gql`
   mutation Jareer_loginUser($loginInput: jareer_LoginInput) {
@@ -190,6 +203,9 @@ const submitForm = async () => {
       },
     });
     localStorage.setItem('token', data.jareer_loginUser.token);
+
+    loginStore.setLoggedIn(true);
+
     router.push('/');
   } catch (e) {
     errorMessage.value = e.message;

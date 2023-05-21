@@ -5,6 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import App from './App.vue';
 import { router } from './router';
+import pinia from './stores/store';
 
 import './style.css';
 import 'flowbite';
@@ -49,4 +50,5 @@ const app = createApp({
 });
 
 app.use(router);
+app.use(pinia);
 app.mount('#app');
